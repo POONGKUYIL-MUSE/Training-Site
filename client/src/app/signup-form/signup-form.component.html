@@ -1,0 +1,60 @@
+<div class="home">
+<div [hidden]="openRegisterForm" class="loginForm">
+  <h1>Sign Up</h1>
+  <div>
+  	<form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" class="loginForm">
+  	<div>
+        <label for="name"><b>Username</b></label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+  	<div>
+        <label for="email"><b>Email</b></label>
+        <input type="email" name="email" id="email" formControlName="email">
+    </div>
+    <div>
+        <label for="mobile"><b>Mobile</b></label>
+        <input type="text" name="mobile" id="mobile" formControlName="mobile">
+    </div>
+    <div>
+        <label for="password"><b>Password</b></label>
+        <input type="password" name="password" id="password" formControlName="password">
+    </div>
+    <div>
+    	<label for="password"><b>Confirm Password</b></label>
+        <input type="password" name="cfpassword" id="cfpassword" formControlName="cfpassword">
+    </div>
+    <button type="submit">Register</button>
+    <div class="formfooter">
+        <span (click)="changeForm($event)" class="rightside">
+          Login Here
+        </span>	
+    </div>
+  	</form>
+  </div>
+</div>
+
+<div [hidden]="openLoginForm" class="loginForm">
+  <h1>Login</h1>
+  <div>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <div>
+        <label for="email"><b>Email</b></label>
+        <input type="email" name="email" id="email" formControlName="email">
+      </div>
+      <div>
+        <label for="password"><b>Password</b></label>
+        <input type="password" name="password" id="password" formControlName="password">
+      </div>
+      <button type="submit">Login</button>
+      <div class="formfooter">
+        <!--<span class="leftside">
+          Forget Password
+        </span>-->
+        <span (click)="changeForm($event)" class="rightside">
+          Register Here
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

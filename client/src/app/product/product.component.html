@@ -1,0 +1,71 @@
+<div class="main">
+<div class="modal-content">
+  <div class="addForm" *ngIf="mode==false">
+  	<h1>Add Product</h1>
+  	<form [formGroup]="openAddProductForm" (ngSubmit)="onRegisterSubmit()">
+  	<div>
+        <label for="name"><b>Product Name</b></label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+  	<div>
+        <label for="amount"><b>Amount</b></label>
+        <input type="number" name="amount" id="amount" formControlName="amount">
+    </div>
+    <div>
+        <label for="description"><b>Description</b></label>
+        <textarea formControlName="description"></textarea>
+    </div>
+    <div [hidden]="true">
+        <input type="text" name="added_by" id="added_by" formControlName="added_by">
+    </div>
+    <button type="submit">Add Product</button>
+  	</form>
+  </div>
+	
+<div *ngIf="mode==true" class="editForm">
+	<h1>Edit Product</h1>
+	<form [formGroup]="editRecord" (ngSubmit)="onEditSubmit()">
+		<div [hidden]="true">
+			<input type="text" name="eid" id="eid" formControlName="eid">
+		</div>
+		<div>
+			<label for="editproductname"><b>Edit Product Name</b></label>
+			<input type="text" name="ename" id="ename" formControlName="ename">
+		</div>
+		<div>
+			<label for="editproductamount"><b>Edit Product Amount</b></label>
+			<input type="number" name="eamount" id="eamount" formControlName="eamount">
+		</div>
+		<div>
+        <label for="description"><b>Description</b></label>
+        <textarea formControlName="edescription"></textarea>
+    </div>
+		<button type="submit">Done</button>
+	</form>
+</div>
+</div>
+
+<div  class="tableflow">
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Description</th>
+			<th>Added By</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr *ngFor="let product of productList">
+			<td>{{product.id}}</td>
+			<td>{{product.name}}</td>
+			<td>{{product.amount}}</td>
+			<td>{{product.description}}</td>
+			<td>{{product.added_by}}</td>
+			<td><span (click)="editProduct($event, product)" class="edbtn">Edit</span></td>
+			<td><span (click)="delProduct($event, product)" class="edbtn">Delete</span></td>
+		</tr>
+	</table>
+</div>
+
+</div>

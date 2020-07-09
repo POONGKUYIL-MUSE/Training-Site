@@ -1,0 +1,21 @@
+<div class="main">
+	<h1>Products</h1>
+	<div  class="tableflow">
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Description</th>
+			<th><span>Add To Cart</span></th>
+		</tr>
+		<tr *ngFor="let product of productList">
+			<td>{{product.id}}</td>
+			<td>{{product.name}}</td>
+			<td>{{product.amount}}</td>
+			<td>{{product.description}}</td>
+			<td><span (click)="AddToCart($event, product)" class="edbtn">Add To Cart</span></td>
+		</tr>
+	</table>
+	</div>
+</div>

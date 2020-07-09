@@ -1,0 +1,42 @@
+<div class="main">
+	
+	<div *ngIf="adminTable==true || superadminTable==true" class="tableflow">
+	<h1>Placed Orders</h1>
+	<table>
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Products</th>
+			<th>Quantities</th>
+			<th>Amounts</th>
+			<th>Total Amount</th>
+		</tr>
+		<tr *ngFor="let o of totorderdata; let i = index;">
+			<td>{{o.username}}</td>
+			<td>{{o.useremail}}</td>
+			<td>{{o.product_name}}</td>
+			<td>{{o.product_quantities}}</td>
+			<td>{{o.product_amounts}}</td>
+			<td>{{o.order_totalamount}}</td>
+		</tr>
+	</table>
+	</div>
+
+	<div *ngIf="customerTable==true">
+	<h1>My Orders</h1>
+	<table>
+		<tr>
+			<th>Products</th>
+			<th>Quantities</th>
+			<th>Amounts</th>
+			<th>Total Amount</th>
+		</tr>
+		<tr *ngFor="let o of orderdata; let i = index;">
+			<td>{{o.product_name}}</td>
+			<td>{{o.product_quantities}}</td>
+			<td>{{o.product_amounts}}</td>
+			<td>{{o.order_totalamount}}</td>
+		</tr>
+	</table>
+	</div>
+</div>

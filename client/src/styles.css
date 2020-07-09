@@ -1,0 +1,304 @@
+/* You can add global styles to this file, and also import other style files */
+
+/****************************************
+@@@@ Side Nav Style @@@@
+*****************************************/
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-top: 60px;
+}
+
+.sidenav a, .sidenav span {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  cursor: pointer;
+}
+
+.sidenav a:hover, .sidenav span:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-top: 100px;
+  margin-left: 250px; /* Same as the width of the sidenav */
+}
+
+
+@media screen and (max-width: 500px) {
+.sidenav { 
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  left:0;
+  right: 0;
+}
+.sidenav a, .sidenav span {
+  font-size: 22px;
+  display: block;
+  padding: 3px 3px 3px 22px;
+  float: left;
+}
+
+.main{
+  margin-top: 160px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+/****************************************
+@@@@ Top Header @@@@
+*****************************************/
+
+.header {
+	height: 40px;
+	width: 100%;
+	background-color: #1B1464;
+	color: white;
+	top:0;
+	left:0;
+	margin-top:0;
+	font-weight: bold;
+	font-size: 50px;
+	padding: 20px 30px;
+	position: fixed;
+	z-index: 5;
+}
+
+@media screen and (max-width: 500px) {
+  .header{
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 30px;
+    color: white;
+
+  }
+}
+
+
+
+/****************************************
+@@@@ Home Styles @@@@
+*****************************************/
+.home {
+  padding: 20px;
+  margin-top: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  float: center;
+}
+
+.home label {
+  display : inherit;
+}
+
+.loginForm {
+  
+  width : 450px;
+  padding: 10px 20px 20px 20px;
+  height: auto;
+  margin: 0px auto 0px auto;
+}
+.formfooter {
+  margin : 3px;
+  width: 90%;
+}
+.formfooter .leftside {
+  width: 40%;
+  float: left;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formfooter .rightside {
+  width: 40%;
+  float: right;
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+
+
+/****************************************
+@@@@ Form Styles @@@@
+*****************************************/
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email], input[type=number] {
+  width: 400px;
+  padding: 8px;
+  margin: 3px 0 3px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+@media screen and (max-width: 500px) {
+  input[type=text], input[type=password], input[type=email], input[type=number] {
+    width: 400px;
+  }
+  button {
+    width: 400px;
+  }
+}
+
+textarea {
+  width: 400px;
+  height: 100px;
+  padding: 8px;
+  margin: 3px 0 3px 0;
+  display: inline-block;
+  border:none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #111;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 416px;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+
+
+.edbtn {
+  color: blue;
+  cursor: pointer;
+}
+
+
+
+
+/****************************************
+@@@@ Edit Form Styles @@@@
+*****************************************/
+.modal-content {
+  background-color: #fefefe;
+  margin: 2% auto 3% auto; /* 5% from the top, 15% from the bottom and centered */
+  /*border: 1px solid #888;*/
+  width: 80%; /* Could be more or less, depending on screen size */
+  overflow: hidden;
+}
+
+.modal-content .addForm,
+.modal-content .editForm {
+  width : 49%;
+}
+
+.modal-content .addForm {
+  float: left;
+}
+
+.modal-content .editForm {
+  float: left;
+}
+
+
+@media screen and (max-width: 500px) {
+  .modal-content {
+    margin: 5% 3% 5% 3%;
+    width: 100%;
+  }
+  .modal-content .addForm,
+  .modal-content .editForm {
+    display: inline-block;
+  }
+  .modal-content .addForm {
+    float: top;
+  }
+  .modal-content .editForm {
+    float: bottom;
+  }
+}
+
+
+
+/****************************************
+@@@@ Table Styles @@@@
+*****************************************/
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.tableflow {
+  float: bottom;
+	overflow-x: auto;
+}
+
+
+.carttable {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.carttable tr:nth-child(even){ background-color: #ffffff; }
+
+.carttable th, .carttable td {
+  text-align: left;
+  padding: 8px;
+}
+
+.carttable input[type=number] {
+    width: 60px;
+}
+

@@ -1,0 +1,83 @@
+<div class="main">
+
+<div class="modal-content">
+  
+  <div class="addForm" *ngIf="mode==false">
+  	<h1>Add Admin</h1>
+  	<form [formGroup]="openAddAdminForm" (ngSubmit)="onRegisterSubmit()">
+  	<div>
+        <label for="name"><b>Username</b></label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+  	<div>
+        <label for="email"><b>Email</b></label>
+        <input type="email" name="email" id="email" formControlName="email">
+    </div>
+    <div>
+        <label for="mobile"><b>Mobile</b></label>
+        <input type="text" name="mobile" id="mobile" formControlName="mobile">
+    </div>
+    <div>
+        <label for="password"><b>Password</b></label>
+        <input type="password" name="password" id="password" formControlName="password">
+    </div>
+    <div>
+    	<label for="password"><b>Confirm Password</b></label>
+        <input type="password" name="cfpassword" id="cfpassword" formControlName="cfpassword">
+    </div>
+    <div [hidden]="true">
+        <input type="text" name="addedBy" id="addedBy" formControlName="addedBy">
+    </div>
+    <button type="submit">Add Admin</button>	
+  	</form>
+  </div>
+
+<div *ngIf="mode==true" class="editForm">
+	<h1>Edit Admin</h1>
+	<form [formGroup]="editRecord" (ngSubmit)="onEditSubmit()">
+		<div [hidden]="true">
+			<input type="text" name="eid" id="eid">
+		</div>
+		<div>
+			<label for="editname"><b>Edit Name</b></label>
+			<input type="text" name="ename" id="ename" formControlName="ename">
+		</div>
+		<div>
+			<label for="editemail"><b>Edit Email</b></label>
+			<input type="email" name="eemail" id="eemail" formControlName="eemail">
+		</div>
+		<div>
+			<label for="editmobile"><b>Edit Mobile</b></label>
+			<input type="text" name="emobile" id="emobile" formControlName="emobile">
+		</div>
+		<button type="submit">Done</button>
+	</form>
+</div>
+</div>
+
+
+
+<div class="tableflow">
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Added By</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr *ngFor="let admin of adminList">
+			<td>{{admin.id}}</td>
+			<td>{{admin.name}}</td>
+			<td>{{admin.email}}</td>
+			<td>{{admin.mobile}}</td>
+			<td>{{admin.added_by}}</td>
+			<td><span (click)="editAdmin($event, admin)" class="edbtn">Edit</span></td>
+			<td><span (click)="delAdmin($event, admin)" class="edbtn">Delete</span></td>
+		</tr>
+	</table>
+</div>
+
+</div>

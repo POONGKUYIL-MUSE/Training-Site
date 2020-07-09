@@ -1,0 +1,50 @@
+<div class="main">
+	<div  class="tableflow" *ngIf="openForm==false">
+	<h1>My Cart</h1>
+	<table border="1">
+		<tr>
+			<th>Select</th>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Amount</th>
+		</tr>
+		<tr *ngFor="let cart of cartList">
+			<td><input type="checkbox" (change)="onChange(cart, $event.target.checked)"></td>
+			<td>{{cart.id}}</td>
+			<td>{{cart.product_name}}</td>
+			<td>{{cart.product_amount}}</td>
+		</tr>
+	</table>
+	<button (click)="placeOrder()">Place Order</button>
+	</div>
+
+	<div *ngIf="openForm==true">
+		<form>
+			<h1>Checkout : </h1>
+			<table class="carttable">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Amount</th>
+					<th>Quantity</th>
+					<th>Total Amount</th>
+				</tr>
+				<tr *ngFor="let m of finalList.value.lists; let i=index;">
+					<td>{{m.product_id}}</td>
+					<td width="20%">{{m.product_name}}</td>
+					<td width="20%">{{m.product_amount}}</td>
+					<td width="20%"><input type="number" value="{{m.product_quantity}}" (change)="addTotal($event, i)"></td>
+					<td width="20%"><input type="number" value="{{m.product_totalamount}}" readonly></td>
+				</tr>
+				<tr>
+					<th colspan="5"> Total Amount for the Order
+					<input type="number" [value]="billamount" readonly>
+					</th>
+				</tr>
+			</table>
+			<div>
+				<button (click)="onSubmitOrder()">Submit Order</button>
+			</div>
+		</form>
+	</div>
+</div>
